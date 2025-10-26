@@ -37,22 +37,12 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-
+  padding-left: 5%;
 }
 
 .content-row.top-row .grid-item {
   margin-bottom: -55px;
   z-index: 100;
-}
-
-/* Bottom row - single unstyled section */
-.content-row.bottom-row {
-  margin-bottom: 20px;
-}
-
-/* Video styling - completely unstyled */
-.video-container {
-  margin-bottom: 20px;
 }
 
 .video-container video {
