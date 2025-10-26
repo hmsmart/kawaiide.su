@@ -1,0 +1,37 @@
+# Use the official nginx image as base
+FROM nginx:latest
+
+# Remove the default nginx website
+RUN rm -rf /usr/share/nginx/html/*
+
+# Copy all website files to nginx web directory
+COPY src/ /usr/share/nginx/html/
+
+# Create a custom nginx configuration for better performance
+RUN echo 'server { \
+    listen 80; \
+    server_name localhost; \
+    root /usr/share/nginx/html; \
+    index index.html; \
+    \
+    # Enable gzip compression \
+    gzip on; \
+    gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript; \
+    \
+    # Cache static assets \
+    location ~* \.(jpg|jpeg|png|gif|ico|css|js|mp4)$ { \
+    expires 1y; \
+    add_header Cache-Control "public, immutable"; \
+    } \
+    \
+    # Main location block \
+    location / { \
+    try_files $uri $uri/ /index.html; \
+    } \
+    }' > /etc/nginx/conf.d/default.conf
+
+# Expose port 80
+EXPOSE 80
+
+# Start nginx
+CMD ["nginx", "-g", "daemon off;"]
