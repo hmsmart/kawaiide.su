@@ -116,16 +116,16 @@ p {
 @media (max-width: 767px) {
   .content-container {
     width: 100%;
-    padding: 12.5vh 15px 0 15px; /* Maintain 1/8th viewport height top padding on mobile */
   }
   
   .content-row.top-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 15px;
   }
   
   .content-row.top-row .grid-item {
     padding: 15px;
+    margin-bottom: -69px;
   }
   
   .footer-content {
