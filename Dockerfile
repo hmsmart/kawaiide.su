@@ -18,10 +18,16 @@ RUN echo 'server { \
     gzip on; \
     gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript; \
     \
-    # Cache static assets \
-    location ~* \.(jpg|jpeg|png|gif|ico|css|js|mp4)$ { \
-    expires 1y; \
-    add_header Cache-Control "public, immutable"; \
+    # Cache static assets - more reasonable for development \
+    location ~* \.(jpg|jpeg|png|gif|ico|mp4)$ { \
+    expires 7d; \
+    add_header Cache-Control "public"; \
+    } \
+    \
+    # Shorter cache for CSS/JS during development \
+    location ~* \.(css|js)$ { \
+    expires 1h; \
+    add_header Cache-Control "public, must-revalidate"; \
     } \
     \
     # Main location block \
