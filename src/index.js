@@ -34,6 +34,9 @@ function randomlyPlaceMiku() {
     // Generate random number between 0 and 3 (inclusive) for miku image
     const randomMikuNumber = Math.floor(Math.random() * 4);
     
+    // Debug logging
+    console.log('Selected miku number:', randomMikuNumber);
+    
     // Generate random number between 0 and 2 (inclusive) for grid column
     const randomColumnIndex = Math.floor(Math.random() * 3);
     
@@ -48,6 +51,18 @@ function randomlyPlaceMiku() {
     mikuImg.src = `img/mikus/mikutop${randomMikuNumber}.png`;
     mikuImg.alt = `Miku ${randomMikuNumber}`;
     mikuImg.style.height = '200px';
+    
+    // Debug logging for image source
+    console.log('Image source:', mikuImg.src);
+    
+    // Add error handler to check if image loads
+    mikuImg.onerror = function() {
+        console.error('Failed to load image:', mikuImg.src);
+    };
+    
+    mikuImg.onload = function() {
+        console.log('Successfully loaded image:', mikuImg.src);
+    };
     
     // Find all grid items in the top row
     const gridItems = document.querySelectorAll('.content-row.top-row .grid-item');
