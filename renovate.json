@@ -1,21 +1,14 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended"
+    "config:recommended",
+    "default:automergeDigest",
+    "default:automergeMinor",
+    "default:automergePr"
   ],
   "timezone": "America/New_York",
-  "platformAutomerge": true,
 
   "schedule": [
     "after 6am and before 10pm"
   ],
-  
-  "packageRules": [
-    {
-      "matchManagers": ["docker"],
-      "matchUpdateTypes": ["patch", "minor"],
-      "automerge": true,
-      "automergeType": "pr"
-    }
-  ]
 }
