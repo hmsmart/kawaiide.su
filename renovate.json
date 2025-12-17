@@ -4,6 +4,7 @@
     "config:recommended"
   ],
   "timezone": "America/New_York",
+  "platformAutomerge": true,
 
   "schedule": [
     "after 6am and before 10pm"
@@ -14,8 +15,7 @@
       "matchManagers": ["docker"],
       "matchUpdateTypes": ["patch", "minor"],
       "automerge": true,
-      "automergeType": "pr",
-      "platformAutomerge": true
+      "automergeType": "pr"
     }
   ]
 }
