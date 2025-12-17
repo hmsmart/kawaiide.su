@@ -2,5 +2,18 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
+  ],
+  "timezone": "America/New_York",
+
+  "schedule": [
+    "after 6am and before 10pm"
+  ],
+  
+  "packageRules": [
+    {
+      "matchManagers": ["docker"],
+      "matchUpdateTypes": ["patch", "minor"],
+      "automerge": true
+    }
   ]
 }
