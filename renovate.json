@@ -7,6 +7,8 @@
     "default:automergePr"
   ],
   "timezone": "America/New_York",
+  
+  "ignoreTests": true,
 
   "schedule": [
     "after 6am and before 10pm"
