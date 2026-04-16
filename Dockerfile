@@ -1,5 +1,5 @@
 # Use the official nginx image as base
-FROM nginx:1.30.0-alpine@sha256:bf593fe2f307f7e423e44aacd870e7e327f60a41f09db349ae3d328c918a77c2
+FROM nginx:1.30.0-alpine@sha256:f60d139a69209d4340f6621fc6a50c9843702214231522a3390432f8db0ed870
 
 # Remove the default nginx website
 RUN rm -rf /usr/share/nginx/html/*
